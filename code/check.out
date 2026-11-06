@@ -1,0 +1,41 @@
+Part 1 (exact)
+  (1/2)(7/2)^4 + (3/2)(5/2)^3 = 3151/32 < 99: True
+  H(1/6) = 54 sqrt6 e^-3 = 6.585457 > 4: True ; lower bound 108/27 = 4
+  tail ratio at n=3: q/(1-q) = 1/127 ; margin 4 - 99/127 = 409/127
+  K_1'(0.1000): numeric 7.45754074 formula 7.45754074
+  K_1'(0.1667): numeric 6.58545732 formula 6.58545732
+  K_1'(0.5000): numeric -1.04052019 formula -1.04052019
+  K_1'(2.0000): numeric -0.17209229 formula -0.17209229
+  sup over a grid of |H| = 8.2967 (< 99)
+  W < 1/8 + 1/992 = 125/992 < 1/4: True
+  I2 bound 4 + 16/4 + 4/4 = 9 (uses 16W<4, 4W<1)
+  sqrt(A) > 9t  =>  9t/(2 sqrt A) < 1/2
+
+Part 2 (classical, mu = sum Z^-1 2^{-n^2} delta_{-2^n}, density of mu * L_t up to the factor t/sqrt(2 pi))
+  t=  0.5 n=3: f'(a_n)=-2.183e-07  f'(a_n+s/6)=+7.292e-01  f'(a_n+s)=-6.716e-02  pattern ok: True
+          local minima of the density on (-2^{n+2}, 0): 4
+  t=  1.0 n=3: f'(a_n)=-2.017e-07  f'(a_n+s/6)=+2.279e-02  f'(a_n+s)=-2.099e-03  pattern ok: True
+          local minima of the density on (-2^{n+2}, 0): 5
+  t=  3.0 n=5: f'(a_n)=-5.256e-15  f'(a_n+s/6)=+1.431e-09  f'(a_n+s)=-1.318e-10  pattern ok: True
+          local minima of the density on (-2^{n+2}, 0): 6
+  t= 10.0 n=8: f'(a_n)=-7.499e-31  f'(a_n+s/6)=+6.325e-24  f'(a_n+s)=-5.825e-25  pattern ok: True
+          local minima of the density on (-2^{n+2}, 0): 6
+
+Part 3 (free, mu_0 = w0 delta_0 + sum 2^-n A_n^-n delta_{-A_n}, A_n = 2^(2^n); T_t with phi(z) = -i t sqrt z)
+  weights: w0=0.874023, w_n=['1.250e-01', '9.766e-04', '7.451e-09', '3.388e-21']
+  t=1.0 n=3 A=256: -G(c)=7.8451e-03 (>1/A=3.9062e-03), I2=6.1554e-05 (<9/A^2=1.3733e-04), H'(c)=0.955708
+    H(c) = -116.7098 is a point of zero density
+    x=  -160.00: G(x)=-6.271e-03  H'(x)=0.960403  H(x)=-147.3718
+    x=  -128.00: G(x)=-7.845e-03  H'(x)=0.955708  H(x)=-116.7098
+    x=   -96.00: G(x)=-1.048e-02  H'(x)=0.948813  H(x)=-86.2295
+    grid: G<0 and H'>0 on [-255.94, -16.18] (spacing 0.060); H maps it onto [-239.96, -12.39]
+    atom   -256.0: f=3.9627e-03, h(atom)=-240.016370 (Im -8.7e-19), density 6.1780e-07; omega(h) = -256.0000+3.9627e-03i
+    atom    -16.0: f=1.8328e-01, h(atom)=-12.091598 (Im 0.0e+00), density 1.9458e-03; omega(h) = -16.0000+1.8328e-01i
+  t=1.7 n=3 A=256: -G(c)=7.8451e-03 (>1/A=3.9062e-03), I2=6.1554e-05 (<9/A^2=1.3733e-04), H'(c)=0.924703
+    H(c) = -108.8067 is a point of zero density
+    x=  -160.00: G(x)=-6.271e-03  H'(x)=0.932685  H(x)=-138.5321
+    x=  -128.00: G(x)=-7.845e-03  H'(x)=0.924703  H(x)=-108.8067
+    x=   -96.00: G(x)=-1.048e-02  H'(x)=0.912982  H(x)=-79.3902
+    grid: G<0 and H'>0 on [-255.94, -16.30] (spacing 0.060); H maps it onto [-228.77, -9.73]
+    atom   -256.0: f=5.2262e-03, h(atom)=-228.827828 (Im 0.0e+00), density 4.7928e-07; omega(h) = -256.0000+5.2262e-03i
+    atom    -16.0: f=2.5267e-01, h(atom)=-9.347735 (Im 0.0e+00), density 1.5746e-03; omega(h) = -16.0000+2.5267e-01i

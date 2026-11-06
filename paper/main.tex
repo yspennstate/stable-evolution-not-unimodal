@@ -1,0 +1,264 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,enumitem,booktabs}
+\usepackage[margin=1.1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Hp}{\mathbb{C}^+}
+\newcommand{\bp}{\boxplus}
+
+\hypersetup{pdftitle={Initial laws with all moments that stay multimodal under stable evolution},pdfauthor={Yitzchak Shmalo}}
+
+\title[Stable evolution need not become unimodal]{Initial laws with all moments that stay multimodal under stable evolution}
+\author{Yitzchak Shmalo}
+\address{Einstein Institute of Mathematics, The Hebrew University of Jerusalem, Jerusalem, Israel}
+\email{yitzchak.shmalo@gmail.com}
+\date{6 November 2026}
+\subjclass[2020]{60E05, 46L54, 60G52}
+\keywords{unimodality, stable process, free stable law, free additive convolution, subordination}
+
+\begin{document}
+\begin{abstract}
+Hasebe and Ueda conjectured that if $\mu$ is a probability measure with finite moment of order $2+\alpha$, then the law at time $t$ of a classical, or free, strictly $\alpha$-stable process started from $\mu$ is unimodal for all sufficiently large $t$. We show that the conjecture fails in both settings for the positive stable processes of index $1/2$. In each case we give an initial law with finite moments of every order whose evolved law is not unimodal at any time $t>0$. In the classical case the initial law is supported on a sparse sequence of points going to $-\infty$, and near each of them the one-sided kernel cannot see the heavier mass lying to its right. In the free case the subordination function of the free convolution, analysed with the global inversion theorem of Huang and Wang, produces an interval on which the density vanishes, with positive density on both sides of it.
+\end{abstract}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+A probability measure $\nu$ on $\R$ is \emph{unimodal} if there are $a\in\R$ and a function $f\ge0$, nondecreasing on $(-\infty,a)$ and nonincreasing on $(a,\infty)$, such that $\nu=\nu(\{a\})\delta_a+f(x)\,dx$. Hasebe and Ueda \cite{HU18} studied when the law of a process with independent, or free, increments started from an initial law $\mu$ becomes unimodal after a long time. For Brownian motion and free Brownian motion they obtained sharp results, and for the positive classical stable process of index $1/2$, whose law at time $t$ is
+\begin{equation}\label{eq:levy}
+L_t(dx)=\frac{t}{\sqrt{2\pi}}\,x^{-3/2}e^{-t^2/(2x)}\,\mathbf 1_{(0,\infty)}(x)\,dx ,
+\end{equation}
+they proved that $\mu*L_t$ is unimodal for large $t$ when $\mu$ has compact support, and constructed a $\mu$ with $\int|x|^p\,d\mu<\infty$ for all $p<5/2$ such that $\mu*L_t$ is unimodal for no $t>0$. They then stated the following conjecture \cite[Conjecture~5.5]{HU18}.
+
+\begin{conjecture}[Hasebe--Ueda]\label{conj:HU}
+Let $S_t$ (respectively $T_t$) be the law at time $t>0$ of a classical (respectively free) strictly $\alpha$-stable process, $\alpha\in(0,2)$. If $\mu$ is a probability measure on $\R$ with $\int_\R|x|^{2+\alpha}\,d\mu(x)<\infty$, then $\mu*S_t$ (respectively $\mu\bp T_t$) is unimodal for all sufficiently large $t$.
+\end{conjecture}
+
+For $\alpha=1/2$ the exponent $2+\alpha$ is exactly the order at which the moments of their example diverge. We show that the conjecture is false in both settings for the positive processes of index $1/2$, with initial laws whose moments are all finite. The conjecture does not restrict the skewness of the process.
+
+\begin{theorem}\label{thm:classical}
+Let $Z=\sum_{n\ge1}2^{-n^2}$ and
+\[
+\mu=\sum_{n\ge1}Z^{-1}2^{-n^2}\,\delta_{-2^n}.
+\]
+Then $\int_\R|x|^p\,d\mu(x)<\infty$ for every $p>0$, and $\mu*L_t$ is not unimodal for any $t>0$.
+\end{theorem}
+
+Let $T_1$ be the positive free strictly $1/2$-stable law, whose Voiculescu transform is $\varphi_{T_1}(z)=-i\sqrt z$ (the case $\alpha=1/2$, $\rho=1$ of the free stable laws $\nu_{\alpha,\rho}$ of Hasebe and Kuznetsov \cite{HK14}, with the principal square root), and let $T_t=T_1^{\bp t}$, so that
+\begin{equation}\label{eq:phiT}
+\varphi_{T_t}(z)=-it\sqrt z .
+\end{equation}
+The dilation of $T_1$ by $t^2$ has the same transform, so $(T_t)_{t\ge0}$ is the law of a free strictly $1/2$-stable process, the free counterpart of \eqref{eq:levy}.
+
+\begin{theorem}\label{thm:free}
+Let $A_n=2^{2^n}$, $w_n=2^{-n}A_n^{-n}$ for $n\ge1$, $W=\sum_{n\ge1}w_n$, and
+\[
+\mu_0=(1-W)\,\delta_0+\sum_{n\ge1}w_n\,\delta_{-A_n}.
+\]
+Then $\int_\R|x|^p\,d\mu_0(x)<\infty$ for every $p>0$, and $\mu_0\bp T_t$ is not unimodal for any $t>0$.
+\end{theorem}
+
+The two proofs are different. Convolution with $L_t$ is a superposition of translated copies of a kernel supported on $(0,\infty)$, so near the atom $-2^n$ every heavier atom, lying to the right of it, contributes nothing, and only the farther, much lighter atoms on the left compete with the local bump. Free convolution is not a superposition of translates. Instead we use the subordination map and the global inversion theorem of Huang and Wang \cite{HW}, which describes the support and the density of $\nu\bp\eta$ for a freely infinitely divisible $\eta$. With it we find, at every time, an interval between two consecutive atoms of $\mu_0$ that is carried to an interval where the density of $\mu_0\bp T_t$ vanishes, while the two atoms themselves are carried to points of positive density.
+
+\begin{remark}
+In the arXiv version of \cite{HU18} the free case of Conjecture~\ref{conj:HU} is written with $*$ in place of $\bp$. We follow the published version.
+\end{remark}
+
+Throughout, a density is a function equal almost everywhere to the Radon--Nikodym derivative. We use one elementary consequence of the definition.
+
+\begin{lemma}\label{lem:unimodal}
+Let $\nu$ be an atomless probability measure with a continuous density $p$.
+\begin{enumerate}[label=(\alph*)]
+\item If $\nu$ is unimodal with mode $a$, then $p$ is nondecreasing on $(-\infty,a]$ and nonincreasing on $[a,\infty)$.
+\item If $p$ is differentiable and $p'(x_0)<0<p'(x_1)$ for some $x_0<x_1$, then $\nu$ is not unimodal.
+\item If there are $y_0<y_1<y_2$ with $p(y_0)>0$, $p(y_2)>0$ and $p=0$ on a neighbourhood of $y_1$, then $\nu$ is not unimodal.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Since $\nu$ has no atom, $\nu=f\,dx$ with $f$ monotone on each side of $a$ and $f=p$ almost everywhere. For $x<y<a$, averaging $f$ over small intervals around $x$ and $y$ and letting their length tend to zero gives $p(x)\le p(y)$, by continuity of $p$; continuity also gives the inequality at $y=a$. The other side is the same. (b) By (a), $p'\ge0$ on $(-\infty,a)$ and $p'\le0$ on $(a,\infty)$. Then $p'(x_0)<0$ forces $x_0\ge a$, so $x_1>a$ and $p'(x_1)\le0$, a contradiction. (c) If $a\le y_1$, then $p$ is nonincreasing on $[y_1,\infty)$, so $p(y_2)\le p(y_1)=0$; if $a\ge y_1$, then $p(y_0)\le p(y_1)=0$. Both contradict the hypotheses.
+\end{proof}
+
+\section{The classical case}\label{sec:classical}
+
+Fix $t>0$ and write $s=t^2$. Up to the factor $t/\sqrt{2\pi}$, which does not affect unimodality, $\mu*L_t$ has the density
+\begin{equation}\label{eq:Ft}
+F(x)=\sum_{n\ge1}w_n K(x-a_n),\qquad w_n=Z^{-1}2^{-n^2},\quad a_n=-2^n,
+\end{equation}
+where $K(r)=r^{-3/2}e^{-s/(2r)}$ for $r>0$ and $K(r)=0$ for $r\le0$. The function $K$ is smooth on $\R$, and for $r>0$
+\begin{equation}\label{eq:Kprime}
+K'(r)=\frac{s-3r}{2r^{7/2}}\,e^{-s/(2r)}=s^{-5/2}\,\Phi(r/s),\qquad \Phi(u)=\frac{1-3u}{2u^{7/2}}\,e^{-1/(2u)} .
+\end{equation}
+
+\begin{lemma}\label{lem:Phi}
+$\sup_{u>0}|\Phi(u)|<99$, $\Phi(1/6)>4$, and $\Phi(u)<0$ for $u>1/3$.
+\end{lemma}
+
+\begin{proof}
+The substitution $v=1/(2u)$ shows $\sup_{u>0}u^{-q}e^{-1/(2u)}=(2q/e)^q$ for $q>0$. Hence, using $e>2$,
+\[
+|\Phi(u)|\le\tfrac12u^{-7/2}e^{-1/(2u)}+\tfrac32u^{-5/2}e^{-1/(2u)}<\tfrac12\left(\tfrac72\right)^{7/2}+\tfrac32\left(\tfrac52\right)^{5/2}<\tfrac12\left(\tfrac72\right)^{4}+\tfrac32\left(\tfrac52\right)^{3}=\tfrac{3151}{32}<99 .
+\]
+Next, $\Phi(1/6)=\frac14\,6^{7/2}e^{-3}=54\sqrt6\,e^{-3}>108/27=4$, since $\sqrt6>2$ and $e<3$. The last claim is clear from the factor $1-3u$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:classical}]
+For $p>0$ we have $\int|x|^p\,d\mu=Z^{-1}\sum_n2^{-n^2+pn}$, and $-n^2+pn\le-n^2/2$ once $n\ge2p$, so every moment is finite.
+
+By Lemma~\ref{lem:Phi}, $|K'|<99\,s^{-5/2}$ on $\R$, so the series of derivatives of \eqref{eq:Ft} converges uniformly and $F$ is continuously differentiable with $F'(x)=\sum_nw_nK'(x-a_n)$. For $k\ge1$, $w_{n+k}/w_n=2^{-2nk-k^2}\le2^{-(2n+1)k}$, so for $n\ge3$
+\begin{equation}\label{eq:tail}
+\sum_{j>n}w_j\le w_n\,\frac{2^{-(2n+1)}}{1-2^{-(2n+1)}}\le\frac{w_n}{127}.
+\end{equation}
+Choose $n\ge3$ with $2^{n-1}>s$ and put $x_0=a_n$ and $x_1=a_n+s/6$. Both points lie in $[a_n,a_n+s]$, and $a_{n-1}-a_n=2^{n-1}>s$, so for $j<n$ we have $x_i-a_j<0$ and the $j$-th term contributes nothing to $F'(x_i)$. For $j>n$ we have $x_i-a_j\ge a_n-a_{n+1}=2^n>s/3$, so these terms are strictly negative by Lemma~\ref{lem:Phi}. At $x_0$ the $n$-th term is $w_nK'(0)=0$, and therefore $F'(x_0)<0$. At $x_1$ the $n$-th term is $w_ns^{-5/2}\Phi(1/6)>4w_ns^{-5/2}$, while by \eqref{eq:tail} the terms with $j>n$ have total absolute value less than $99\,s^{-5/2}w_n/127$. Hence
+\[
+F'(x_1)>\Bigl(4-\frac{99}{127}\Bigr)w_ns^{-5/2}=\frac{409}{127}\,w_ns^{-5/2}>0 .
+\]
+Since $x_0<x_1$ and $\mu*L_t$ is atomless with the continuously differentiable density $F$, Lemma~\ref{lem:unimodal}(b) shows that $\mu*L_t$ is not unimodal. As $t>0$ was arbitrary, the theorem follows.
+\end{proof}
+
+\begin{remark}
+The point $a_n+s$ also has $F'(a_n+s)<0$, so near $a_n$ the density falls, rises and falls again. The finiteness of every moment comes from the two features that make the proof work: the atoms that matter near $a_n$ lie on the side invisible to the kernel, and the atoms on the visible side carry a superexponentially small fraction of the weight $w_n$.
+\end{remark}
+
+\section{The free case}\label{sec:free}
+
+\subsection{Global inversion}
+For a probability measure $\nu$ on $\R$ let $G_\nu(z)=\int(z-x)^{-1}d\nu(x)$ and $F_\nu=1/G_\nu$ on $\Hp$. Let $\eta$ be a nondegenerate freely infinitely divisible law with Voiculescu transform $\varphi_\eta$, and $\nu$ a nondegenerate probability measure. Huang and Wang \cite{HW} study
+\[
+H(z)=z+\varphi_\eta(F_\nu(z)),\qquad z\in\Hp,
+\]
+whose global inverse is the subordination function of $\nu\bp\eta$, that is, $G_{\nu\bp\eta}(z)=G_\nu(\omega(z))$. They show \cite[Section~3]{HW} that the set
+\[
+\Omega=\{z\in\Hp:\Im H(z)>0\}=\{x+iy:\ y>f(x)\}
+\]
+lies above the graph of a continuous function $f\colon\R\to[0,\infty)$, that $H$ maps $\Omega$ onto $\Hp$ and extends continuously to $\overline\Omega$, and that $h(x)=H(x+if(x))$ is an increasing homeomorphism of $\R$. Put $V=\{x\in\R: f(x)>0\}$. We use three of their results.
+
+\begin{enumerate}[label=(HW\arabic*)]
+\item \cite[Proposition~3.2]{HW} A point $\lambda\in\R$ lies in $\R\setminus V$ if and only if the angular derivative $H'(\lambda)$ exists in $[0,\infty)$.
+\item \cite[Theorem~3.6 and Remark~3.7]{HW} $\R\setminus V=\mathcal A\cup\mathcal B\cup\mathcal C$, where every point of $\mathcal B$ and of $\mathcal C$ is a point $\lambda$ at which $G_\nu$ has a finite boundary value $G_\nu(\lambda)$ (nonzero for $\mathcal B$, zero for $\mathcal C$), and $\mathcal A$ is the set of $\lambda$ with $\nu(\{\lambda\})+\eta(\{s_\eta\})\ge1$, where $s_\eta$ is the zero of $F_\eta$ when it exists (otherwise the second term is $0$).
+\item \cite[Theorem~3.9 and Example~3.8]{HW} The singular part of $\nu\bp\eta$ is carried by $h(\mathcal A)$. The absolutely continuous part has a density $p$ that is continuous on $\R\setminus h(\mathcal A)$, with $p(h(x))>0$ for $x\in V$ and $p(h(x))=0$ for $x\in\R\setminus V$.
+\end{enumerate}
+
+We apply this with $\nu=\mu_0$ and $\eta=T_t$, so that by \eqref{eq:phiT}
+\begin{equation}\label{eq:H}
+H_t(z)=z-it\sqrt{F(z)},\qquad F=F_{\mu_0},\ G=G_{\mu_0}.
+\end{equation}
+The law $T_t$ is absolutely continuous \cite{HK14}, so $\eta(\{s_\eta\})=0$, and every atom of $\mu_0$ has mass less than $1$. Hence $\mathcal A=\emptyset$, and by (HW3) the measure $\mu_0\bp T_t$ is absolutely continuous with a continuous density $p_t$.
+
+\subsection{The initial law}
+We have $w_1=1/8$, and $A_n\ge16$ for $n\ge2$, so $w_n\le32^{-n}$ and
+\begin{equation}\label{eq:W}
+W\le\frac18+\sum_{n\ge2}32^{-n}=\frac{125}{992}<\frac14,\qquad 1-W>\frac34 .
+\end{equation}
+For $p>0$, $\int|x|^p\,d\mu_0=\sum_n2^{-n}A_n^{p-n}$, and $A_n^{p-n}\le A_n^{-1}$ for $n\ge p+1$, so all moments of $\mu_0$ are finite. For $n\ge2$ we have $A_{n-1}=\sqrt{A_n}\le A_n/4$, and $\mu_0$ has no mass in the gap $(-A_n,-A_{n-1})$.
+
+\begin{lemma}\label{lem:gap}
+Let $n\ge2$, $A=A_n$ and $c=-A/2$. Then $G(c)<-1/A$ and $I_2(c):=\int(c-x)^{-2}d\mu_0(x)<9/A^2$.
+\end{lemma}
+
+\begin{proof}
+In $G(c)=\int(c-x)^{-1}d\mu_0(x)$ the atom at $0$ contributes $-2(1-W)/A<-3/(2A)$, the atoms $-A_k$ with $k<n$ contribute negative terms since $c+A_k\le-A/4$, and the atoms with $k\ge n$ satisfy $c+A_k\ge A/2$ and contribute at most $2W/A<1/(2A)$. In $I_2(c)$ the atom at $0$ contributes at most $4/A^2$, the atoms with $k<n$ are at distance at least $A/4$ from $c$ and contribute at most $16W/A^2<4/A^2$, and those with $k\ge n$ are at distance at least $A/2$ and contribute at most $4W/A^2<1/A^2$.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:free}}
+Fix $t>0$ and choose $n\ge2$ with $\sqrt{A_n}>9t$; put $A=A_n$ and $c=-A/2\in(-A_n,-A_{n-1})$.
+
+On the gap $(-A_n,-A_{n-1})$ the function $G$ is real-analytic, with $G'=-I_2<0$, and $G(c)<0$ by Lemma~\ref{lem:gap}. Let $J\subset(-A_n,-A_{n-1})$ be an open interval around $c$ on which $G<0$. On $J$, $F=1/G$ is real-analytic and negative, and the square root of $F(z)$ for $z\in\Hp$ near $J$ continues analytically across $J$ with boundary values $\sqrt{F(x)}=i/\sqrt{a(x)}$, where $a=-G>0$. Thus $H_t$ extends analytically across $J$, with real values
+\[
+H_t(x)=x+\frac{t}{\sqrt{a(x)}},\qquad H_t'(x)=1-\frac{t\,I_2(x)}{2\,a(x)^{3/2}}\qquad(x\in J),
+\]
+the derivative following from $F'=I_2/a^2$. At $x=c$, Lemma~\ref{lem:gap} gives $a(c)>1/A$ and so
+\[
+H_t'(c)>1-\frac{9t}{2A^2}\,A^{3/2}=1-\frac{9t}{2\sqrt A}>\frac12 .
+\]
+Shrinking $J$, we may assume $H_t'>0$ on $J$. Since $H_t$ is analytic and real on $J$, its angular derivative at each $x\in J$ is the ordinary derivative, which lies in $(0,\infty)$. By (HW1), $J\subset\R\setminus V$, and by (HW3), $p_t=0$ on the open interval $h(J)$.
+
+The atoms $\lambda=-A_n$ and $\lambda=-A_{n-1}$ of $\mu_0$ lie in $V$. Indeed $G(\lambda+i\varepsilon)$ is unbounded as $\varepsilon\downarrow0$, so $G$ has no finite boundary value at $\lambda$ and $\lambda\notin\mathcal B\cup\mathcal C$, while $\mathcal A=\emptyset$; by (HW2), $\lambda\in V$. By (HW3), $p_t(h(-A_n))>0$ and $p_t(h(-A_{n-1}))>0$. As $h$ is increasing and $-A_n<J<-A_{n-1}$, the interval $h(J)$, on which $p_t$ vanishes, lies strictly between two points where $p_t$ is positive. Since $\mu_0\bp T_t$ is atomless with the continuous density $p_t$, Lemma~\ref{lem:unimodal}(c) shows that it is not unimodal. As $t>0$ was arbitrary, the theorem follows. \qed
+
+\begin{remark}
+The proof only uses that $T_t$ has no atom and that its Voiculescu transform is $-it\sqrt z$; replacing $t$ by $\gamma t$ for a constant $\gamma>0$ changes only the choice of $n$. The interval $J$ obtained from the argument is small, but numerically most of the gap is carried to the zero set; see Section~\ref{sec:numerics}.
+\end{remark}
+
+\section{A numerical check}\label{sec:numerics}
+
+Both constructions were also checked numerically. For Theorem~\ref{thm:classical}, the series \eqref{eq:Ft} truncated at $n=12$ gives, with $n$ as in the proof,
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+$t$ & $n$ & $F'(a_n)$ & $F'(a_n+t^2/6)$\\
+\midrule
+$0.5$ & $3$ & $-2.2\times10^{-7}$ & $7.3\times10^{-1}$\\
+$1$ & $3$ & $-2.0\times10^{-7}$ & $2.3\times10^{-2}$\\
+$3$ & $5$ & $-5.3\times10^{-15}$ & $1.4\times10^{-9}$\\
+$10$ & $8$ & $-7.5\times10^{-31}$ & $6.3\times10^{-24}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+and between four and six local minima of the density on $(-2^{n+2},0)$.
+
+For Theorem~\ref{thm:free} we kept the atoms of $\mu_0$ with $n\le4$ and moved the omitted mass, which is below $10^{-49}$, to $0$. At $t=1$ the proof uses $n=3$, $A=256$. On a grid of spacing $0.06$ over the gap $(-256,-16)$, $G<0$ and $H_1'>0$ hold on $[-255.94,-16.18]$, which $H_1$ maps onto $[-239.96,-12.39]$, an interval of zero density. At the two flanking atoms we solved for $f(\lambda)$, the largest $y>0$ with $\Im H_1(\lambda+iy)=0$, and obtained
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+$\lambda$ & $f(\lambda)$ & $h(\lambda)$ & $p_1(h(\lambda))$\\
+\midrule
+$-256$ & $3.96\times10^{-3}$ & $-240.016$ & $6.2\times10^{-7}$\\
+$-16$ & $1.83\times10^{-1}$ & $-12.092$ & $1.9\times10^{-3}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+with $p_1(h(\lambda))=-\pi^{-1}\Im G(\lambda+if(\lambda))$. Running the subordination iteration $\omega\mapsto z+it\sqrt{F(\omega)}$ at $z=h(\lambda)$ returns $\omega=\lambda+if(\lambda)$ to the digits shown. The density is therefore positive at $-240.016$ and at $-12.092$ and vanishes on $[-239.96,-12.39]$ between them. The same picture appears at $t=1.7$.
+
+\section*{Acknowledgements and funding}
+The research presented in this paper was supported by the European Research
+Council (ERC) under the European Union's Horizon Europe research and
+innovation programme (grant agreement No.~101041711), by the Simons
+Foundation as part of the Collaboration on the Mathematical and Scientific
+Foundations of Deep Learning, by Heights Labs, by Convex Nexus Capital, by
+the Israel Science Foundation (grant number 2258/19), and by the Israel
+Science Foundation (ISF Grant 4101/25). Computational resources were
+provided in part by Google Cloud through its education credits program
+(credit 530550103).
+
+\section*{Declaration of competing interest}
+The author holds equity in Heights Labs and in Convex Nexus Capital and
+has a management role at Convex Nexus Capital. These entities are included
+in the funding declaration above.
+
+\section*{Declaration of generative AI and AI-assisted technologies}
+The paper comes out of Math Brain, an ongoing project on the use of AI systems for research mathematics. In September 2026 a GPT-family model (OpenAI), running in the Codex command-line tool, found both constructions and their proofs; other model instances checked them. In November 2026 Claude Opus~5.5 (Anthropic), working in Claude Code, checked the proofs against the cited results, wrote and ran the computations of Section~\ref{sec:numerics}, and wrote the paper. The author directed the work and is responsible for the content of the paper and for decisions concerning its dissemination.
+
+\section*{Data availability}
+No data were used. The code for the computations of Section~\ref{sec:numerics} and for the check of the constants, with its output, is available at\\ \url{https://github.com/yspennstate/stable-evolution-not-unimodal}.
+
+\begin{thebibliography}{9}
+
+\bibitem{BV93}
+H.~Bercovici and D.~V.~Voiculescu, Free convolution of measures with unbounded support, \emph{Indiana Univ. Math. J.} \textbf{42} (1993), 733--773.
+
+\bibitem{HK14}
+T.~Hasebe and A.~Kuznetsov, On free stable distributions, \emph{Electron. Commun. Probab.} \textbf{19} (2014), no.~56, 1--12.
+
+\bibitem{HU18}
+T.~Hasebe and Y.~Ueda, Large time unimodality for classical and free Brownian motions with initial distributions, \emph{ALEA Lat. Am. J. Probab. Math. Stat.} \textbf{15} (2018), 353--374; arXiv:1710.08240.
+
+\bibitem{HW}
+H.-W.~Huang and J.-C.~Wang, Regularity results for free L\'evy processes, preprint, arXiv:2203.00421.
+
+\end{thebibliography}
+\end{document}
