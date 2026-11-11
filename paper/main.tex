@@ -39,7 +39,7 @@ Hasebe and Ueda conjectured that if $\mu$ is a probability measure with finite m
 
 \section{Introduction}\label{sec:intro}
 
-A probability measure $\nu$ on $\R$ is \emph{unimodal} if there are $a\in\R$ and a function $f\ge0$, nondecreasing on $(-\infty,a)$ and nonincreasing on $(a,\infty)$, such that $\nu=\nu(\{a\})\delta_a+f(x)\,dx$. Hasebe and Ueda \cite{HU18} studied when the law of a process with independent, or free, increments started from an initial law $\mu$ becomes unimodal after a long time. For Brownian motion and free Brownian motion they obtained sharp results, and for the positive classical stable process of index $1/2$, whose law at time $t$ is
+A probability measure $\nu$ on $\R$ is \emph{unimodal} if there are $a\in\R$ and a function $f\ge0$, nondecreasing on $(-\infty,a)$ and nonincreasing on $(a,\infty)$, such that $\nu=\nu(\{a\})\delta_a+f(x)\,dx$. For classical L\'evy processes unimodality in large time can fail: Wolfe \cite{W78} gave a class of L\'evy processes whose marginal laws are not unimodal for large $t$. In the free setting Hasebe and Sakuma \cite{HS17} proved that every free L\'evy process whose L\'evy measure has bounded support is unimodal for all sufficiently large $t$, and that the boundedness cannot be dropped. Hasebe and Ueda \cite{HU18} studied when the law of a process with independent, or free, increments started from an initial law $\mu$ becomes unimodal after a long time. For Brownian motion and free Brownian motion they obtained sharp results, and for the positive classical stable process of index $1/2$, whose law at time $t$ is
 \begin{equation}\label{eq:levy}
 L_t(dx)=\frac{t}{\sqrt{2\pi}}\,x^{-3/2}e^{-t^2/(2x)}\,\mathbf 1_{(0,\infty)}(x)\,dx ,
 \end{equation}
@@ -59,7 +59,7 @@ Let $Z=\sum_{n\ge1}2^{-n^2}$ and
 Then $\int_\R|x|^p\,d\mu(x)<\infty$ for every $p>0$, and $\mu*L_t$ is not unimodal for any $t>0$.
 \end{theorem}
 
-Let $T_1$ be the positive free strictly $1/2$-stable law, whose Voiculescu transform is $\varphi_{T_1}(z)=-i\sqrt z$ (the case $\alpha=1/2$, $\rho=1$ of the free stable laws $\nu_{\alpha,\rho}$ of Hasebe and Kuznetsov \cite{HK14}, with the principal square root), and let $T_t=T_1^{\bp t}$, so that
+Let $T_1$ be the positive free strictly $1/2$-stable law, whose Voiculescu transform is $\varphi_{T_1}(z)=-i\sqrt z$ (the case $\alpha=1/2$, $\rho=1$ of the free stable laws $\nu_{\alpha,\rho}$ of Hasebe and Kuznetsov \cite{HK14}, with the principal square root), and let $T_t=T_1^{\bp t}$, where $\bp$ is the free additive convolution of measures with unbounded support \cite{BV93}, so that
 \begin{equation}\label{eq:phiT}
 \varphi_{T_t}(z)=-it\sqrt z .
 \end{equation}
@@ -258,11 +258,17 @@ H.~Bercovici and D.~V.~Voiculescu, Free convolution of measures with unbounded s
 \bibitem{HK14}
 T.~Hasebe and A.~Kuznetsov, On free stable distributions, \emph{Electron. Commun. Probab.} \textbf{19} (2014), no.~56, 1--12.
 
+\bibitem{HS17}
+T.~Hasebe and N.~Sakuma, Unimodality for free L\'evy processes, \emph{Ann. Inst. Henri Poincar\'e Probab. Stat.} \textbf{53} (2017), 916--936.
+
 \bibitem{HU18}
 T.~Hasebe and Y.~Ueda, Large time unimodality for classical and free Brownian motions with initial distributions, \emph{ALEA Lat. Am. J. Probab. Math. Stat.} \textbf{15} (2018), 353--374; arXiv:1710.08240.
 
 \bibitem{HW}
-H.-W.~Huang and J.-C.~Wang, Regularity results for free L\'evy processes, preprint, arXiv:2203.00421.
+H.-W.~Huang and J.-C.~Wang, Regularity results for free L\'evy processes, \emph{Adv. Math.} \textbf{402} (2022), 108323; arXiv:2203.00421.
+
+\bibitem{W78}
+S.~J.~Wolfe, On the unimodality of infinitely divisible distribution functions, \emph{Z. Wahrscheinlichkeitstheorie verw. Gebiete} \textbf{45} (1978), 329--335.
 
 \bibitem{MathBrainRepo} Y.~Shmalo, \emph{Math Brain: public snapshot, code and tests}, 2026, \url{https://github.com/yspennstate/math-brain-public}.
 
