@@ -33,7 +33,7 @@
 
 \begin{document}
 \begin{abstract}
-Hasebe and Ueda conjectured that if $\mu$ is a probability measure with finite moment of order $2+\alpha$, then the law at time $t$ of a classical, or free, strictly $\alpha$-stable process started from $\mu$ is unimodal for all sufficiently large $t$. We show that the conjecture fails in both settings for the positive stable processes of index $1/2$. In each case we give an initial law with finite moments of every order whose evolved law is not unimodal at any time $t>0$. In the classical case the initial law is supported on a sparse sequence of points going to $-\infty$, and near each of them the one-sided kernel cannot see the heavier mass lying to its right. In the free case the subordination function of the free convolution, analysed with the global inversion theorem of Huang and Wang, produces an interval on which the density vanishes, with positive density on both sides of it.
+Hasebe and Ueda conjectured that if $\mu$ is a probability measure with finite moment of order $2+\alpha$, then the law at time $t$ of a classical, or free, strictly $\alpha$-stable process started from $\mu$ is unimodal for all sufficiently large $t$. We show that the conjecture fails in both settings for the positive stable processes of index $1/2$; in the classical setting this is a special case of an earlier result of the author for every index in $(0,1)$, and the free statement is the main result. In each case we give an initial law with finite moments of every order whose evolved law is not unimodal at any time $t>0$. In the classical case the initial law is supported on a sparse sequence of points going to $-\infty$, and near each of them the one-sided kernel cannot see the heavier mass lying to its right. In the free case the subordination function of the free convolution, analysed with the global inversion theorem of Huang and Wang, produces an interval on which the density vanishes, with positive density on both sides of it.
 \end{abstract}
 \maketitle
 
@@ -58,6 +58,8 @@ Let $Z=\sum_{n\ge1}2^{-n^2}$ and
 \]
 Then $\int_\R|x|^p\,d\mu(x)<\infty$ for every $p>0$, and $\mu*L_t$ is not unimodal for any $t>0$.
 \end{theorem}
+
+Theorem~\ref{thm:classical} is the case $\alpha=1/2$ of \cite[Corollary~1.3]{Sh26}, which shows that the same initial law gives a non-unimodal $\mu*S_t$ at every $t>0$ for every positive strictly $\alpha$-stable process with $0<\alpha<1$. We include the short proof for $\alpha=1/2$ for comparison with the free case, Theorem~\ref{thm:free}, which is the main result of this paper.
 
 Let $T_1$ be the positive free strictly $1/2$-stable law, whose Voiculescu transform is $\varphi_{T_1}(z)=-i\sqrt z$ (the case $\alpha=1/2$, $\rho=1$ of the free stable laws $\nu_{\alpha,\rho}$ of Hasebe and Kuznetsov \cite{HK14}, with the principal square root), and let $T_t=T_1^{\bp t}$, where $\bp$ is the free additive convolution of measures with unbounded support \cite{BV93}, so that
 \begin{equation}\label{eq:phiT}
@@ -266,6 +268,9 @@ T.~Hasebe and Y.~Ueda, Large time unimodality for classical and free Brownian mo
 
 \bibitem{HW}
 H.-W.~Huang and J.-C.~Wang, Regularity results for free L\'evy processes, \emph{Adv. Math.} \textbf{402} (2022), 108323; arXiv:2203.00421.
+
+\bibitem{Sh26}
+Y.~Shmalo, Free strong unimodality and a conjecture of Hasebe and Ueda, preprint, 2026, \url{https://doi.org/10.13140/RG.2.2.20724.92802}; code at \url{https://github.com/yspennstate/free-strong-unimodality}.
 
 \bibitem{W78}
 S.~J.~Wolfe, On the unimodality of infinitely divisible distribution functions, \emph{Z. Wahrscheinlichkeitstheorie verw. Gebiete} \textbf{45} (1978), 329--335.
